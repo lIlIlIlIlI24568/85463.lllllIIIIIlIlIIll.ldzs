@@ -1,0 +1,101 @@
+-- 本地脚本xgo
+-- 邮件列表
+local messages = {
+    "你知道这款游戏有一个很好的教程"，
+    "eezz“，
+    "哭泣"，
+    "诚实垃圾"，
+    "狗水"，
+    ”想象一下是坏"，
+    "Trashhhh"，
+    "我甚至甚至不努力和我赢了"，
+    "兄弟你只是可怕的"，
+    "你能在比赛中变得更糟"，
+    "你很容易杀了"，
+    "我从来没有见过这个游戏这么糟糕"，
+    "我对你感到难过，你在游戏中让我畏缩"，
+    "你是最糟糕的球员我曾经扮演过"，
+    "Looool"，
+    "eeeez"，
+    "兄弟你这么疯狂"，
+    "老实说，你是搞笑你有多糟糕"，
+    "你被垃圾如此努力"，
+    "继续哭泣"，
+    "我甚至不努力哈哈"，
+    "只是戒掉你令自己令人尴尬的"，
+    "我觉得我很喜欢对阵机器人"，
+    "只是接受你令人恐惧的事实"，
+    "我嘲笑你的糟糕是"，
+    ”你真的没有技巧"，
+    "你很容易击败",
+    "你怎么玩"，
+    "停止哭泣关于失败"，
+    "得到gud"，
+    "你怎么不尴尬"，
+    "我从未见过任何人玩这么可怕的"，
+    "我的小弟弟可以比你更好"，
+    "老实说"，
+    "甚至没有试图在游戏中变得更好”，
+    "这就像你想要丢失",
+    "你这么开玩笑"，
+    "只是放弃"，
+    "这是如此简单"，
+    "这是一个完整的笑话"，
+    "我很无聊对着你"，
+    "你是如此可怕"，
+    "保持抱怨，这很有趣"，
+    "我觉得我觉得我只是欺负你现在"，
+    "这实际上是悲伤的"，
+    "你只是浪费你的时间"，
+    "你太慢了"，
+    "你是我见过的最愚蠢的球员"，
+    "你是如此垃圾，它真的很伤心"，
+    "你是个笑话"，
+     }
+-- 索引跟踪当前消息
+local currentIndex = 1
+
+-- 函数向聊天发送消息
+local function sendMessage(message)
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+end
+
+-- 用户输入服务检测键压制
+local UserInputService = game:GetService("UserInputService")
+
+-- 按键的事件侦听器
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed then -- Ensure the player is not typing in a text box
+        if input.KeyCode == Enum.KeyCode.G then
+            -- 发送当前消息
+            sendMessage(messages[currentIndex])
+            
+            -- 移动到列表中的下一个消息
+            currentIndex = currentIndex + 1
+            
+            -- 如果我们已到达列表的末尾，请从第一条消息开始
+            if currentIndex > #messages then
+                currentIndex = 1
+            end
+        end
+    end
+end)
+
+-- 创建一个屏幕
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CreditsGui"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- 创建文本标签
+local textLabel = Instance.new("TextLabel")
+textLabel.Parent = screenGui
+textLabel.Text = "xgo 按G进行输出"
+textLabel.Size = UDim2.new(0, 200, 0, 50) -- 宽度：200px，高度：50px
+textLabel.Position = UDim2.new(1, -210, 1, -60) -- 从右边10px，底部10px
+textLabel.BackgroundTransparency = 1 -- Make the background transparent
+textLabel.TextColor3 = Color3.new(1, 0.41, 0.71) -- 粉色文本
+textLabel.TextStrokeTransparency = 0.5 -- 略微可见的文本笔划
+textLabel.TextSize = 20 -- 字体大小
+textLabel.Font = Enum.Font.SourceSans -- 字体类型
+textLabel.TextXAlignment = Enum.TextXAlignment.Right -- 将文本对齐
+textLabel.TextYAlignment = Enum.TextYAlignment.Bottom -- 将文本与底部对齐
