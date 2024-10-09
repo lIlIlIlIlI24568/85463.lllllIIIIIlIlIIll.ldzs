@@ -1,56 +1,57 @@
 -- 本地脚本xgo
 -- 邮件列表
 local messages = {
-    "你知道这款游戏有一个很好的教程"，
-    "eezz“，
-    "哭泣"，
-    "诚实垃圾"，
-    "狗水"，
-    ”想象一下是坏"，
-    "Trashhhh"，
-    "我甚至甚至不努力和我赢了"，
-    "兄弟你只是可怕的"，
-    "你能在比赛中变得更糟"，
-    "你很容易杀了"，
-    "我从来没有见过这个游戏这么糟糕"，
-    "我对你感到难过，你在游戏中让我畏缩"，
-    "你是最糟糕的球员我曾经扮演过"，
-    "Looool"，
-    "eeeez"，
-    "兄弟你这么疯狂"，
-    "老实说，你是搞笑你有多糟糕"，
-    "你被垃圾如此努力"，
-    "继续哭泣"，
-    "我甚至不努力哈哈"，
-    "只是戒掉你令自己令人尴尬的"，
-    "我觉得我很喜欢对阵机器人"，
-    "只是接受你令人恐惧的事实"，
-    "我嘲笑你的糟糕是"，
-    ”你真的没有技巧"，
-    "你很容易击败",
-    "你怎么玩"，
-    "停止哭泣关于失败"，
-    "得到gud"，
-    "你怎么不尴尬"，
-    "我从未见过任何人玩这么可怕的"，
-    "我的小弟弟可以比你更好"，
-    "老实说"，
-    "甚至没有试图在游戏中变得更好”，
-    "这就像你想要丢失",
-    "你这么开玩笑"，
-    "只是放弃"，
-    "这是如此简单"，
-    "这是一个完整的笑话"，
-    "我很无聊对着你"，
-    "你是如此可怕"，
-    "保持抱怨，这很有趣"，
-    "我觉得我觉得我只是欺负你现在"，
-    "这实际上是悲伤的"，
-    "你只是浪费你的时间"，
-    "你太慢了"，
-    "你是我见过的最愚蠢的球员"，
-    "你是如此垃圾，它真的很伤心"，
-    "你是个笑话"，
+    "You know this game has a good tutorial",
+    "female dog",
+    "EEZZ",
+    "Cry",
+    "honestly trash",
+    "dog water",
+    "imagine being that bad",
+    "honestly mid",
+    "trashhhh",
+    "i'm not even trying and im winning",
+    "bro you are just horrible",
+    "can you get any worse at the game",
+    "you're so easy to kill",
+    "i've never seen anyone so bad at this game",
+    "i feel bad for you, you are so bad at the game its making me cringe",
+    "you're the worst player i've ever played against",
+    "LOOOOL",
+    "EEEEZ",
+    "bro you're so mad",
+    "it's honestly funny how bad you are",
+    "you got trashed so hard",
+    "keep crying",
+    "i'm not even trying lol",
+    "just quit you're embarrassing yourself",
+    "i feel like im playing against a bot",
+    "just accept the fact that you're terrible",
+    "i'm laughing so hard at how bad you are",
+    "you literally have no skill",
+    "you're so easy to beat",
+    "how do you even play this game",
+    "stop crying about losing",
+    "get gud",
+    "how are you not embarrassed",
+    "i've never seen anyone play so horribly",
+    "my little brother could play better than you",
+    "honestly don't even try to get better at the game",
+    "it's like you're trying to lose",
+    "you're such a joke",
+    "just give up",
+    "this is so easy",
+    "this is a complete joke",
+    "i'm bored playing against you",
+    "you're so terrible",
+    "keep whining, it's funny",
+    "you're so terrible i feel like i'm just bullying you now",
+    "this is actually sad",
+    "you're just wasting your time",
+    "you're so slow",
+    "you're the dumbest player i've ever seen",
+    "you're so trash it's actually sad",
+    "you're a joke"
      }
 -- 索引跟踪当前消息
 local currentIndex = 1
