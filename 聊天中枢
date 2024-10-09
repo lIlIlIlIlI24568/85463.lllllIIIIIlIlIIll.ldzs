@@ -1,5 +1,6 @@
--- 本地脚本xgo
--- 邮件列表
+-- LocalScript
+
+-- List of messages
 local messages = {
     "You know this game has a good tutorial",
     "female dog",
@@ -52,29 +53,30 @@ local messages = {
     "you're the dumbest player i've ever seen",
     "you're so trash it's actually sad",
     "you're a joke"
-     }
--- 索引跟踪当前消息
+}
+
+-- Index to keep track of the current message
 local currentIndex = 1
 
--- 函数向聊天发送消息
+-- Function to send a message to the chat
 local function sendMessage(message)
     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
 end
 
--- 用户输入服务检测键压制
+-- User Input Service to detect key presses
 local UserInputService = game:GetService("UserInputService")
 
--- 按键的事件侦听器
+-- Event listener for key press
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed then -- Ensure the player is not typing in a text box
         if input.KeyCode == Enum.KeyCode.G then
-            -- 发送当前消息
+            -- Send the current message
             sendMessage(messages[currentIndex])
             
-            -- 移动到列表中的下一个消息
+            -- Move to the next message in the list
             currentIndex = currentIndex + 1
             
-            -- 如果我们已到达列表的末尾，请从第一条消息开始
+            -- If we have reached the end of the list, start over from the first message
             if currentIndex > #messages then
                 currentIndex = 1
             end
@@ -82,21 +84,21 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     end
 end)
 
--- 创建一个屏幕
+-- Create a ScreenGui
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "CreditsGui"
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- 创建文本标签
+-- Create a TextLabel
 local textLabel = Instance.new("TextLabel")
 textLabel.Parent = screenGui
-textLabel.Text = "xgo 按G进行输出"
-textLabel.Size = UDim2.new(0, 200, 0, 50) -- 宽度：200px，高度：50px
-textLabel.Position = UDim2.new(1, -210, 1, -60) -- 从右边10px，底部10px
+textLabel.Text = "xgo 按G进行使用"
+textLabel.Size = UDim2.new(0, 200, 0, 50) -- Width: 200px, Height: 50px
+textLabel.Position = UDim2.new(1, -210, 1, -60) -- 10px from the right, 10px from the bottom
 textLabel.BackgroundTransparency = 1 -- Make the background transparent
-textLabel.TextColor3 = Color3.new(1, 0.41, 0.71) -- 粉色文本
-textLabel.TextStrokeTransparency = 0.5 -- 略微可见的文本笔划
-textLabel.TextSize = 20 -- 字体大小
-textLabel.Font = Enum.Font.SourceSans -- 字体类型
-textLabel.TextXAlignment = Enum.TextXAlignment.Right -- 将文本对齐
-textLabel.TextYAlignment = Enum.TextYAlignment.Bottom -- 将文本与底部对齐
+textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+textLabel.TextStrokeTransparency = 0.5 -- Slightly visible text stroke
+textLabel.TextSize = 20 -- Font size
+textLabel.Font = Enum.Font.SourceSans -- Font type
+textLabel.TextXAlignment = Enum.TextXAlignment.Right -- Align text to the right
+textLabel.TextYAlignment = Enum.TextYAlignment.Bottom -- Align text to the bottom
