@@ -1,0 +1,333 @@
+   local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GTAFAW/neilonmacedo153/refs/heads/main/%E5%BD%A9%E8%99%B9ui", true))()
+    local window = library:new("goto_Oฅ●ω●ฅ🥂")
+    local creds = window:Tab("关于", "6035145364")
+    local bin = creds:section("信息", true)
+    bin:Label("你的注入器:" .. identifyexecutor())
+    bin:Label("更新9月18日")
+    
+local credits = creds:section("关闭", true)
+credits:Button("脚本框架变小一点 抱歉暂时无法使用", "", false, function(state)
+        if state then
+        game:GetService("CoreGui")["frosty"].Main.Style = "DropShadow"
+        else
+            game:GetService("CoreGui")["frosty"].Main.Style = "Custom"
+        end
+    end)
+    credits:Button(
+        "关闭脚本",
+        function()
+            game:GetService("CoreGui")["frosty"]:Destroy()
+        end)
+        
+        local Players = credits:Dropdown("选择玩家名字已开始下面的功能", 'Dropdown', bin.dropdown, function(v)
+    bin.playernamedied = v
+end)
+
+credits:Button("重置玩家名字", function()
+    shuaxinlb(true)
+    Players:SetOptions(bin.dropdown)
+end)
+
+credits:Button("传送到玩家旁边", function()
+    local HumRoot = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local tp_player = game.Players:FindFirstChild(bin.playernamedied)
+    if tp_player and tp_player.Character and tp_player.Character.HumanoidRootPart then
+        HumRoot.CFrame = tp_player.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+    else
+        print("无法传送：未找到玩家或玩家没有角色/HumanoidRootPart")
+    end
+end)
+local creds = window:Tab("xgo音乐区", "16060333448")
+local credits = creds:section("所有皆为xgo 一人收集", true)
+credits:Button("停止播放音乐",  function()      for i,v in pairs(workspace:GetDescendants())    do			if v:IsA("Sound") then				v:Destroy()			end		end   end)
+credits:Button("音乐播放器  xgo版本", function()     -- Create the GUI
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local CloseButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local BetaText = Instance.new("TextLabel")
+local UICornerForClose = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local PlayButton = Instance.new("TextButton")
+local Sound = Instance.new("Sound")
+-- 将GUI到玩家的屏幕
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+-- 帧属性（主GUI窗口）
+Frame.Size = UDim2.new(0, 300, 0, 100)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.Draggable = true  -- 使它拖累
+-- UI角用于框架上的光滑边缘
+UICorner.CornerRadius = UDim.new(0.1, 0)  -- 光滑的边缘
+UICorner.Parent = Frame
+-- Close Button (a circle with 'X' in it)
+CloseButton.Text = "X"
+CloseButton.Size = UDim2.new(0, 40, 0, 40)
+CloseButton.Position = UDim2.new(1, -45, 0, 5)  -- 位于右上角的位置
+CloseButton.BackgroundColor3 = Color3.fromRGB(1, 0.5, 0)
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.Parent = Frame
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.TextSize = 24
+-- ui角用于关闭按钮上的光滑边缘
+UICornerForClose.CornerRadius = UDim.new(1, 0)  -- 完整的循环
+UICornerForClose.Parent = CloseButton
+-- Beta通知的弹出文本标签
+BetaText.Size = UDim2.new(0, 250, 0, 50)
+BetaText.Position = UDim2.new(0.5, -125, 0.5, -25)
+BetaText.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+BetaText.Text = "欢迎使用xgo;Q群 259461151 "
+BetaText.TextColor3 = Color3.fromRGB(255, 255, 255)
+BetaText.Font = Enum.Font.SourceSansBold
+BetaText.TextSize = 18
+BetaText.Parent = ScreenGui
+BetaText.Visible = true
+-- ui角落在beta文本上的光滑边缘
+local BetaTextCorner = Instance.new("UICorner")
+BetaTextCorner.CornerRadius = UDim.new(0.1, 0)
+BetaTextCorner.Parent = BetaText
+-- 在几秒钟后使beta文本消失
+wait(3)
+for i = 1, 50 do
+    BetaText.TextTransparency = i / 50
+    BetaText.BackgroundTransparency = i / 50
+    wait(0.05)
+end
+BetaText:Destroy()
+-- 关闭按钮功能
+CloseButton.MouseButton1Click:Connect(function()
+    Sound:Stop()  -- Stop the music when the GUI is closed
+    ScreenGui:Destroy()
+end)
+-- 用于输入音乐ID的TextBox
+TextBox.Size = UDim2.new(0, 200, 0, 40)
+TextBox.Position = UDim2.new(0.5, -100, 0.3, -20)
+TextBox.PlaceholderText = "输入歌曲ID"
+TextBox.Text = ""
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(1, 1, 1)
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.TextSize = 18
+-- 播放按钮
+PlayButton.Size = UDim2.new(0, 100, 0, 40)
+PlayButton.Position = UDim2.new(0.5, -50, 0.5, 20)
+PlayButton.Text = "播放 xgo"
+PlayButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+PlayButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayButton.Parent = Frame
+PlayButton.Font = Enum.Font.SourceSansBold
+PlayButton.TextSize = 18
+-- 创建声音对象
+Sound.Parent = game.Workspace
+-- 播放按钮功能
+PlayButton.MouseButton1Click:Connect(function()
+    local musicId = tonumber(TextBox.Text)
+    if musicId then
+        Sound.SoundId = "rbxassetid://" .. musicId
+        Sound:Play()
+    else
+        warn("xgo准备好音乐id，然后输入进去即可")
+    end
+end)   end)
+credits:Button("音乐播放器    如果有好听的可以投稿",      function()     loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/beta/main/music.lua"))()   end)
+local credits = creds:section("小go提示:这次更新后面会加上音乐id 前边的话我就不加了，太麻烦了", true)
+credits:Button("Direct & Park Avenue - I'll Go 挺好听的",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410081298"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Rogue - Motion", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7028557220"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Rome in Silver & Beach Season - Skin 和上一首一样，都挺好听的",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7028570258"   sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻微吧（节奏）   男版",  function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7023690024"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837871067"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松2", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837849285"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松3 ", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1836842889"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Pixel Terror & Aviella - Enigma  女版",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410084645"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Grant - Color  女版",  function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7023828725"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Til the Morning (a)女版", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1840041842"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松7   女版", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1847606454"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("嗯，挺好听的，不知道叫啥   女版", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7023741506"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("住宅区(1845554017)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1845554017"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松8", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839721437"    sound.Parent = game.Workspace    sound:Play()    end)
+local credits = creds:section("DJ🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️要音乐id，可以联系我🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+credits:Button("Play Theme 节奏（1847661821）",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1847661821"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("jumpstyle 节奏感很强（1839246711）", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839246711"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Autotuned Dancing Roach  不知道怎么形容这电音",  function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://4050095124"    sound.Parent = game.Workspace   sound:Play()    end)
+credits:Button("Dj", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1843497734"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Dj2",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7028977687 "    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Dj3",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1836594449"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Dj4 ", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://792323017"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("机器人舞蹈C(1847853099)",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1847853099"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Dj5",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842940193"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Robotic Dance A", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837853076"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Parry Gripp - Pancake Robot",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9245558138"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj8", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837434037"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj9", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839037193"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj10", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837560230"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj11",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842908121"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj12", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9042493127"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj13", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839246774"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj14", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842940253"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj15", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9041933055"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj16",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410086218"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj17", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839703786"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj18",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1838627720"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj19",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410085763"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj20", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839898469"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj21", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1848213471"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj22", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410080771"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj23", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837843720"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj24", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842802012"    sound.Parent = game.Workspace    sound:Play()   end)
+credits:Button("dj25", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1846863084"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj26", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842802498"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj27", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1838075732"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj28", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410083226"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj29", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://792323017"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj30", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7028913008"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj31", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9042616023"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj32", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1847799916"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Rip the Guts Out", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837814958"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Pixel Terror - Machina", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410080475"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("We Go Hard", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842940420"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Fight Or Flight", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842940300"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Alarm",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1845080313"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Parry Gripp - Last Train to Awesome Town",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9245554658"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Uproar", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842934837"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("The Will To Fight A", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1845793864"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Mindwinder (a)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1838075377"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("dj42", function()   local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("FWLR - Hot",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410082534"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Noisestorm - Escape",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://5410082879"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Skull Crusher", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842558494"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("45",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9041932892"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Heist",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1836782065"    sound.Parent = game.Workspace    sound:Play()    end)
+local credits = creds:section("休闲安逸🕊️🕊️🕊️🕊️嗯，更新这个音乐系统的话，我也不知道具体什么时间🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+credits:Button("城镇谈话(1845756489)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1845756489"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("快乐的歌(1843404009)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1843404009"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("一起战斗吗(1843324336)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1843324336"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("高保真冷柜A(9043887091)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9043887091"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("轻松的场景(经典1848354536)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1848354536"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("在监狱里生活(1841647093)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1841647093"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("不再(1846458016)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1846458016"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Cute Story",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1839755231"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("快乐一点的",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://9039445224"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Swing it", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1843313385"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Police 打鼓伴奏",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1842981634"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("睡眠歌曲 Baby Song",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1838998127"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("义勇军进行曲",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1845918434"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("彩虹瀑布",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1837879082"    sound.Parent = game.Workspace    sound:Play()    end)
+local credits = creds:section("整蛊语音🕊️还有一些梗🕊️🕊️🕊️xgo找这些好辛苦的🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+credits:Button("第1次听吓我一跳（7795812961）", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://7795812961"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("我跌倒了,爬不起来（130768088）",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130768088"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("胜利的声音(12222253)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://12222253"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("死亡的声音(12222242)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://12222242"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("当你在minecraft中死去(2607544190)",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://2607544190"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("悲伤的小提琴(135308045)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://135308045"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("喂我!(130766856)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130766856"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("Minions - Bee Doo Bee Doo Bee Doo（130844390）",        function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130844390"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("你在我的沼泽做什么!(130767645)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130767645"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("你是斯巴达（130781067）", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130781067"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("那是我的钱包((130760834))",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130760834"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("孩子说哎哟哇(12222058)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://12222058"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button(" Oh my god(1841647093)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://1841647093"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("我是蝙蝠侠(130769318)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130769318"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("约翰的笑声(130759239)", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130759239"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("他是免费的(130771265)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130771265"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("李·罗伊·詹金斯(130758889)",function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://130758889"    sound.Parent = game.Workspace    sound:Play()    end)
+credits:Button("防空警报（792323017）", function()    local sound = Instance.new("Sound")    sound.SoundId = "rbxassetid://792323017"    sound.Parent = game.Workspace    sound:Play()    end) 
+local creds = window:Tab("火箭发射模拟器", "16060333448")
+local credits = creds:section("🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+    credits:Button(
+        "小go制作",
+        function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/w2DuRFZ7"))()
+        end
+    )
+    credits:Button(
+        "火箭发射模拟器1",
+        function()
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/321_blast_off_simulator')))()
+        end
+    )
+credits:Button(
+        "火箭发射模拟器2",
+        function()
+            loadstring(game:HttpGet("https://ayangwp.cn/api/v3/file/get/9245/%E7%8C%AB%E9%80%9A%E7%94%A8.txt?sign=hrWROZdVfK2mtJcIFa3Tvbl-TojP1C86_Zd3q03qttc%3D%3A0"))()
+        end
+    )
+    local creds = window:Tab("俄亥俄州👀", "16060333448")
+    local credits = creds:section("🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+credits:Button(
+        "xk",
+        function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/BINjiaobzx6/BINjiao/main/XK%20Ohio.lua"))()
+        end
+    )
+credits:Button(
+        "小go制作玩家控制喜欢俄亥俄的，可以搭配起来超级好用",
+        function()
+            loadstring(game:HttpGet("https://github.com/GTAFAW/neilonmacedo153/blob/main/%E7%8E%A9%E5%AE%B6%E6%8E%A7%E5%88%B6"))()
+        end
+    )
+
+credits:Button("传送加自动工作",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ohio/main/Roblox232"))()
+end)
+
+credits:Button("小go俄亥俄州简易版",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GTAFAW/neilonmacedo153/refs/heads/main/%E4%BF%84%E4%BA%A5%E4%BF%84%E5%B7%9E"))()
+end)
+credits:Button("指令",function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/longshulol/long/main/longshu/Ohio"))()
+end)
+
+local bin = creds:section("聊天框内输入指令",false)
+bin:Label("透开—透关")
+bin:Label("追踪开—追踪关")
+bin:Label("收钱开—收钱关")
+bin:Label("收物开—收物关")
+bin:Label("抢取款机开—抢取款机关")
+bin:Label("抢银行开—抢银行关")
+bin:Label("穿墙开—穿墙关")
+
+local creds = window:Tab("兵工厂", "16060333448")
+local credits = creds:section("🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+
+credits:Button(
+        "兵工厂1",
+        function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+    end
+)
+credits:Button(
+        "兵工厂2",
+        function()
+         loadstring(game:HttpGet(('https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init'), true))()
+    end
+)
+
+local creds = window:Tab("索尔的RNG", "16060333448")
+local credits = creds:section("🕊️🕊️🕊️🕊️🕊️🕊️🕊️🕊️", true)
+
+credits:Button(
+        "索尔的RNG1",
+        function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/Looser3itx/Hmmmmmmmmmmmmmmmmmmmmmmmmmmmm/main/loader.lua"))()
+   end
+)
+credits:Button(
+        "不知道叫啥 需要卡密2",
+        function()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+  	end
+)
+credits:Button(
+        "索尔的RNG3",
+        function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/upd/main/rng"))()
+  	end
+)
+ 
+
+
